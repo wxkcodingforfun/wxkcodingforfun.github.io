@@ -86,7 +86,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-31-%E5%91%A8%E6%97%A5-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93"><span class="toc-text">1.31 周日 学习总结</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-31-%E5%91%A8%E6%97%A5-%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93"><span class="toc-text">1.31 周日 学习总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8A%E6%97%A5%E5%86%85%E5%AE%B9"><span class="toc-text">今日内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">Linux操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC0%E7%AB%A0%E5%92%8C%E7%AC%AC1%E7%AB%A0%E7%9A%84%E6%94%B6%E8%8E%B7"><span class="toc-text">第0章和第1章的收获</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">数据结构</span></a></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -129,74 +129,30 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="1-31-周日-学习总结"><a href="#1-31-周日-学习总结" class="headerlink" title="1.31 周日 学习总结"></a>1.31 周日 学习总结</h1><p>##今日内容</p>
-<p>###Linux操作系统<br>最近要做的东西是在公司的Linux项目上开发的，所以自己主动学了一下Linux的相关知识。在同事的推荐下看了《鸟哥的Linux私房菜》</p>
+        <h1 id="1-31-周日-学习总结"><a href="#1-31-周日-学习总结" class="headerlink" title="1.31 周日 学习总结"></a>1.31 周日 学习总结</h1><h2 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h2><h3 id="Linux操作系统"><a href="#Linux操作系统" class="headerlink" title="Linux操作系统"></a>Linux操作系统</h3><p>最近要做的东西是在公司的Linux项目上开发的，所以自己主动学了一下Linux的相关知识。在同事的推荐下看了《鸟哥的Linux私房菜》</p>
 <p>这本书很适合入门，特别是没有接触过计算机开发的同学。<br>电子书一共有1770+页。</p>
 <p>由于前面主要讲的是关于计算机的组成和操作系统的作用的。所以看的比较快，但是也很有收获</p>
-<p>第0章和第1章的收获</p>
+<h3 id="第0章和第1章的收获"><a href="#第0章和第1章的收获" class="headerlink" title="第0章和第1章的收获"></a>第0章和第1章的收获</h3><p>​    </p>
 <ol>
 <li>Linux的由来，与GNU C  Compiler(GCC)的历史</li>
 <li>重新了解了操作系统和计算机硬件以及软件应用的关系。大概是硬件-&gt;操作系统和驱动-&gt;软件的关系 </li>
 <li>感受了一下自由和开源的伟大，很希望自己也能成为上世纪Linux刚开始发育时期的那种Hacker</li>
 <li>同时了解到Linux是很适合建站的，最近的博客也是在macOS这个类Unix系统上完成的。大致了解应该怎么学Linux。</li>
 </ol>
-<p>###数据结构</p>
-<ol>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><ol>
 <li><p>leecode 每日一题 839 [相似字符串组] (<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/similar-string-groups/">https://leetcode-cn.com/problems/similar-string-groups/</a>)</p>
 </li>
 <li><p>第一次参加周赛 迟到了一个小时 写了两题但是时间过了</p>
 <ol>
 <li><p>[从相邻元素对还原数组] (<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/restore-the-array-from-adjacent-pairs/">https://leetcode-cn.com/problems/restore-the-array-from-adjacent-pairs/</a>) medium 我的方法是元素对往哈希表中正反填两次，头和尾的两个元素在哈希表中的v只会有一个值，其他的都是两个，这样找到头，然后根据键值直接索引到value，依次最后找到尾部。空间复杂度是O(2*n + n) 时间复杂度很高最开始遍历了两次n 最后依次找下一个节点的时候最坏情况是n^2 </p>
-<pre><code>class Solution &#123;
-public:
-    vector&lt;int&gt; restoreArray(vector&lt;vector&lt;int&gt;&gt;&amp; adjacentPairs) &#123;
-        int n = adjacentPairs.size() + 1;
-        if(n == 2)
-            return adjacentPairs[0];
-        
-        vector&lt;int&gt; res(n);
-        unordered_map&lt;int, vector&lt;int&gt;&gt; map;
-        for(int i = 0;i &lt; n - 1;++i)
-        &#123;
-            map[adjacentPairs[i][0]].emplace_back(adjacentPairs[i][1]);
-            map[adjacentPairs[i][1]].emplace_back(adjacentPairs[i][0]);
-        &#125;
-        res[n - 1] = INT32_MIN;
-        int i = 1;
-        for(auto&amp; [k,v]:map)
-        &#123;
-            if(v.size() == 1)
-            &#123;
-                res[0] = k;
-                res[1] = v[0];
-            &#125;
-        &#125;
-    
-        while(res[n - 1] == INT32_MIN)
-        &#123;
-            if(map[res[i]][0] == res[i - 1])
-            &#123;
-                res[i + 1] = map[res[i]][1];
-            &#125;
-            else               
-            &#123;
-                res[i + 1] = map[res[i]][0];
-            &#125;
-            
-            i++;
-        &#125;
-        return res;
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; restoreArray(vector&lt;vector&lt;int&gt;&gt;&amp; adjacentPairs) &#123;</span><br><span class="line">        int n &#x3D; adjacentPairs.size() + 1;</span><br><span class="line">        if(n &#x3D;&#x3D; 2)</span><br><span class="line">            return adjacentPairs[0];</span><br><span class="line">        </span><br><span class="line">        vector&lt;int&gt; res(n);</span><br><span class="line">        unordered_map&lt;int, vector&lt;int&gt;&gt; map;</span><br><span class="line">        for(int i &#x3D; 0;i &lt; n - 1;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            map[adjacentPairs[i][0]].emplace_back(adjacentPairs[i][1]);</span><br><span class="line">            map[adjacentPairs[i][1]].emplace_back(adjacentPairs[i][0]);</span><br><span class="line">        &#125;</span><br><span class="line">        res[n - 1] &#x3D; INT32_MIN;</span><br><span class="line">        int i &#x3D; 1;</span><br><span class="line">        for(auto&amp; [k,v]:map)</span><br><span class="line">        &#123;</span><br><span class="line">            if(v.size() &#x3D;&#x3D; 1)</span><br><span class="line">            &#123;</span><br><span class="line">                res[0] &#x3D; k;</span><br><span class="line">                res[1] &#x3D; v[0];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        while(res[n - 1] &#x3D;&#x3D; INT32_MIN)</span><br><span class="line">        &#123;</span><br><span class="line">            if(map[res[i]][0] &#x3D;&#x3D; res[i - 1])</span><br><span class="line">            &#123;</span><br><span class="line">                res[i + 1] &#x3D; map[res[i]][1];</span><br><span class="line">            &#125;</span><br><span class="line">            else               </span><br><span class="line">            &#123;</span><br><span class="line">                res[i + 1] &#x3D; map[res[i]][0];</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-    &#125;
-&#125;;
-
-</code></pre>
 </li>
 </ol>
 </li>
 </ol>
-<pre><code>2    . [盒子中小球的最大数量](https://leetcode-cn.com/problems/maximum-number-of-balls-in-a-box/)这个就比较简单了，直接暴力也很快
-</code></pre>
+<p>​<br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-number-of-balls-in-a-box/">盒子中小球的最大数量</a>这个就比较简单了，直接暴力也很快</p>
+<p>​    </p>
 
         
         <br />
