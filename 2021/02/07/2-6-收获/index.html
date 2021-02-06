@@ -11,7 +11,7 @@
 
     <title>
         
-        
+        2.6 收获 - undefined
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/wxkcodingforfun.github.io/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -85,6 +85,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2-6-%E6%94%B6%E8%8E%B7"><span class="toc-text">2.6 收获</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#work"><span class="toc-text">work</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#scintilla%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB"><span class="toc-text">scintilla源码阅读</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux"><span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#leecode"><span class="toc-text">leecode</span></a></li></ol></li></ol>
+</div>
+    
 </div>
 
 
@@ -109,125 +113,62 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2021-02-07</div>
-        <div class="post-info">
-            <a href="/wxkcodingforfun.github.io/2021/02/07/2-6-收获/">
-                <h3>
-                    2.6 收获
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        2.6 收获
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-02-05</div>
-        <div class="post-info">
-            <a href="/wxkcodingforfun.github.io/2021/02/05/2-5-收获/">
-                <h3>
-                    2.5 收获
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-02-07 00:08:57</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-02-04</div>
-        <div class="post-info">
-            <a href="/wxkcodingforfun.github.io/2021/02/04/记录/">
-                <h3>
-                    2.4 记录
-                </h3>
-            </a>
-            <p>
-                
-            </p>
+    <div class="post-content ">
+        <h1 id="2-6-收获"><a href="#2-6-收获" class="headerlink" title="2.6 收获"></a>2.6 收获</h1><h2 id="work"><a href="#work" class="headerlink" title="work"></a>work</h2><h3 id="scintilla源码阅读"><a href="#scintilla源码阅读" class="headerlink" title="scintilla源码阅读"></a>scintilla源码阅读</h3><p>Scintilla的windows版本是一个窗体控件，最开始是通过窗体消息控制的。</p>
+<p>最开始的Scintilla是按照标注的windows edit 和RichEdit control来定义的，但是这些控件的api已经被移除了，为了支持scintilla自己的特性。现在Scintilla运行控件，进行词法风格的修改，折叠，高亮，自动补充，标记。</p>
+<p>GTK版本也用了消息传递和windows类似。</p>
+<p>观看SciTE如何使用库是最好的使用Scintilla开发的办法</p>
+<p>从Open文件的入口 只看到了文件打开 就结束了 没看到文件交给控件的地方</p>
+<p>应该找到页面控件</p>
+<p>窗体的函数入口是WinMain</p>
+<p>静态库lib(library)和动态库dll(dynamic link library)的区别</p>
+<p>静态库在程序编译的时候会被连接到目标代码中，程序运行时不再需要静态库——这样会导致程序变大浪费空间资源，但是移植方便</p>
+<p>动态库</p>
+<p>由于静态库在内存中存在多份拷贝，所以我们会使用动态库</p>
+<p>动态库在程序编译的时候不会被连接到目标代码，而是在程序运行的时候才被载入。</p>
+<p>内存里面只有一份共享库的实例。</p>
+<p>在Linux下，使用ldd可以查看程序依赖的共享库</p>
+<p><strong>在新安装一个库之后如何让系统能够找到他</strong></p>
+<p>如果安装在/lib或者/usr/lib下，那么ld默认能够找到，无需其他操作。</p>
+<p>如果安装在其他目录，需要将其添加到/etc/ld.so.cache文件中，步骤如下</p>
+<p>1.编辑/etc/ld.so.conf文件，加入库文件所在目录的路径</p>
+<p>2.运行ldconfig，该命令会重建/etc/ld.so.cache文件</p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>tar指令</p>
+<h2 id="leecode"><a href="#leecode" class="headerlink" title="leecode"></a>leecode</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-points-you-can-obtain-from-cards/">1423. 可获得的最大点数</a></p>
+<p>又秒啦 感觉 只要能看出题目的意思tag，就能做出来！</p>
+<p>今天周六 就不看labuladong了 感觉最近收获越来越少了 看这个</p>
+<p>第45场 双周赛</p>
+<p>今天晚上十点半 打个比赛 先休息一下</p>
+<p>这次有点进步 三题ac了 最后一题实在不会</p>
+<p>也知道是dp 但是找不到关系式 需要再加强学习</p>
+<p>今天就没看labuladong了 明天看吧</p>
+
+        
+        <br />
+        <div id="comment-container">
         </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-02-03</div>
-        <div class="post-info">
-            <a href="/wxkcodingforfun.github.io/2021/02/03/2.2~2.3 收获/">
-                <h3>
-                    2.2~2.3 收获
-                </h3>
-            </a>
-            <p>
-                
-            </p>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
         </div>
+
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-02-01</div>
-        <div class="post-info">
-            <a href="/wxkcodingforfun.github.io/2021/02/01/2-1/">
-                <h3>
-                    2.1 收获
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-01-31</div>
-        <div class="post-info">
-            <a href="/wxkcodingforfun.github.io/2021/01/31/1.31周总结与下周学习计划/">
-                <h3>
-                    1.31 周总结与下周学习计划
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-01-31</div>
-        <div class="post-info">
-            <a href="/wxkcodingforfun.github.io/2021/01/31/1.31 周日 学习内容/">
-                <h3>
-                    1.31 周日 学习内容
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-01-30</div>
-        <div class="post-info">
-            <a href="/wxkcodingforfun.github.io/2021/01/30/hello-world/">
-                <h3>
-                    Hello World
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
 </div>
-<ul class="pager">
-    
-    
-</ul>
 
     </div>
 </div>
@@ -267,7 +208,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = ""
     window.hexo_root = "/wxkcodingforfun.github.io/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
