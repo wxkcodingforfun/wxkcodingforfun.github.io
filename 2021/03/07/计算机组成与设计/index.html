@@ -86,7 +86,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-text">计算机组成与设计 学习笔记</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-text">计算机组成与设计 学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E6%9C%AC%E4%B9%A6"><span class="toc-text">如何阅读本书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1-21-3-7"><span class="toc-text">第一次 21&#x2F;3&#x2F;7</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC1%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%A6%81%E4%B8%8E%E6%8A%80%E6%9C%AF"><span class="toc-text">第1章 计算机概要与技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%9D%E6%83%B3"><span class="toc-text">计算机思想</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-text">编译程序的流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC2%E7%AB%A0-%E6%8C%87%E4%BB%A4%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="toc-text">第2章 指令：计算机的语言</span></a></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -129,7 +129,68 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="计算机组成与设计-学习笔记"><a href="#计算机组成与设计-学习笔记" class="headerlink" title="计算机组成与设计 学习笔记"></a>计算机组成与设计 学习笔记</h1>
+        <h1 id="计算机组成与设计-学习笔记"><a href="#计算机组成与设计-学习笔记" class="headerlink" title="计算机组成与设计 学习笔记"></a>计算机组成与设计 学习笔记</h1><h2 id="如何阅读本书"><a href="#如何阅读本书" class="headerlink" title="如何阅读本书"></a>如何阅读本书</h2><p><img src="/wxkcodingforfun.github.io/./%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/image-20210307222948288.png" alt="image-20210307222948288"></p>
+<p>![image-20210307222948288](./计算机组成与设计/2021-03-07 22-33-55 的屏幕截图.png)</p>
+<h2 id="第一次-21-3-7"><a href="#第一次-21-3-7" class="headerlink" title="第一次 21/3/7"></a>第一次 21/3/7</h2><h3 id="第1章-计算机概要与技术"><a href="#第1章-计算机概要与技术" class="headerlink" title="第1章 计算机概要与技术"></a>第1章 计算机概要与技术</h3><h4 id="计算机思想"><a href="#计算机思想" class="headerlink" title="计算机思想"></a>计算机思想</h4><ol>
+<li>通过冗余提高可靠性</li>
+<li><strong>通过并行提高性能</strong></li>
+<li><strong>通过流水线提高性能</strong></li>
+<li>通过预测提高性能</li>
+<li><strong>加速大概率事件</strong></li>
+</ol>
+<p>虽然有八个思想，但是我觉得上面的这五个是编程的时候用得到的，别是流水线。</p>
+<p>一个程序的性能取决于四个因素：</p>
+<p>算法，编程语言·编译器·体系结构，处理器和存储系统，I/O系统（硬件和操作系统）</p>
+<h4 id="编译程序的流程"><a href="#编译程序的流程" class="headerlink" title="编译程序的流程"></a>编译程序的流程</h4><p>​    从高级语言到硬件语言：</p>
+<p>​    计算机硬件语言就是一些二进制数。计算机会识别特殊的二进制数来当做<strong>指令</strong>。例如，位串 1000110010100000 告诉计算机将两个数相加。</p>
+<p>​    后面，出现了汇编程序，因为这些二进制数不好记。所以最开始的开发人员，开发了汇编，用来将一些符号翻译成对应的二进制。例：add A, B -&gt; 1000110010100000。</p>
+<p>​    但是汇编语言由于太接近计算机硬件语言，使用汇编语言来实现一些复杂操作实在太难。所以有了<strong>高级编程语言</strong>通过编译程序转换到汇编的过程。</p>
+<p>​    所以一个程序由int main()到执行的过程，是先由编译器将字符翻译成汇编语言程序，然后再由汇编变成二进制机器语言。这个过程中，由于执行程序的硬件不同，这些硬件识别的指令集也不同，所以我们需要根据不同的平台来选特定的编译器。</p>
+<p>比如：使用CISC(Complex Instruction Set Computers)复杂指令集的AMD的x86和Intel芯片，还有使用RISC(Reduced Instruction Set Computers)精简指令集的ARM，IBM Power芯片。</p>
+<p><strong>CISC与RISC对比</strong></p>
+<table>
+<thead>
+<tr>
+<th>CSIC</th>
+<th>RISC</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>复杂指令的执行需要更多的时钟周期</td>
+<td>简单指令只需1个时钟周期</td>
+</tr>
+<tr>
+<td>所有指令都可访问内存</td>
+<td>只有loads/stores指令可访问内存</td>
+</tr>
+<tr>
+<td>寄存器少</td>
+<td>寄存器多</td>
+</tr>
+<tr>
+<td>微代码翻译模板复杂</td>
+<td>软件编译器复杂</td>
+</tr>
+<tr>
+<td>指令多，模式多</td>
+<td>指令少，模式少</td>
+</tr>
+<tr>
+<td>指令格式可变</td>
+<td>指令格式固定</td>
+</tr>
+<tr>
+<td>指令由微代码翻译执行</td>
+<td>指令直接由硬件执行</td>
+</tr>
+<tr>
+<td>无流水线或流水线程度较低</td>
+<td>流水线结构</td>
+</tr>
+</tbody></table>
+<p>​        相同的程序代码，想要在不同的平台上跑起来。首先需要选用对应平台的编译器，因为不同平台使用的汇编语言指令集不一样，这样就导致翻译的二进制机器语言也不一样。比如一个test.c需要通过gcc编译器将程序编译成CISC的指令集汇编语言，才能拿在CISC的CPU上运行。</p>
+<h3 id="第2章-指令：计算机的语言"><a href="#第2章-指令：计算机的语言" class="headerlink" title="第2章 指令：计算机的语言"></a>第2章 指令：计算机的语言</h3><p>![2021-03-07 22-25-09屏幕截图](./计算机组成与设计/2021-03-07 22-25-09屏幕截图.png)</p>
+
         
         <br />
         <div id="comment-container">
