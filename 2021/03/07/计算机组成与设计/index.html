@@ -147,6 +147,9 @@
 <p>​    但是汇编语言由于太接近计算机硬件语言，使用汇编语言来实现一些复杂操作实在太难。所以有了<strong>高级编程语言</strong>通过编译程序转换到汇编的过程。</p>
 <p>​    所以一个程序由int main()到执行的过程，是先由编译器将字符翻译成汇编语言程序，然后再由汇编变成二进制机器语言。这个过程中，由于执行程序的硬件不同，这些硬件识别的指令集也不同，所以我们需要根据不同的平台来选特定的编译器。</p>
 <p>比如：使用CISC(Complex Instruction Set Computers)复杂指令集的AMD的x86和Intel芯片，还有使用RISC(Reduced Instruction Set Computers)精简指令集的ARM，IBM Power芯片。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">st&#x3D;&gt;start: 程序代码</span><br><span class="line">op&#x3D;&gt;operation: 编译器</span><br><span class="line">io&#x3D;&gt;inputoutput: 汇编程序</span><br><span class="line">op1&#x3D;&gt;operation: 指令集汇编</span><br><span class="line">io1&#x3D;&gt;inputoutput: 二进制代码</span><br><span class="line">e&#x3D;&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;io-&gt;op1-&gt;io1-&gt;e</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
 <p><strong>CISC与RISC对比</strong></p>
 <table>
 <thead>
@@ -190,6 +193,11 @@
 </tbody></table>
 <p>​        相同的程序代码，想要在不同的平台上跑起来。首先需要选用对应平台的编译器，因为不同平台使用的汇编语言指令集不一样，这样就导致翻译的二进制机器语言也不一样。比如一个test.c需要通过gcc编译器将程序编译成CISC的指令集汇编语言，才能拿在CISC的CPU上运行。</p>
 <h3 id="第2章-指令：计算机的语言"><a href="#第2章-指令：计算机的语言" class="headerlink" title="第2章 指令：计算机的语言"></a>第2章 指令：计算机的语言</h3><p>![2021-03-07 22-25-09屏幕截图](../img/2021-03-07 22-25-09屏幕截图.png)</p>
+<p>补码能看懂 其他的是真的看不懂 2.1~2.11</p>
+<p>其中并行的东西 感觉<strong>链接取数</strong>和<strong>条件存数</strong>应该会对多线程变成有用 但是看不懂</p>
+<p>2.12 翻译并执行程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">st&#x3D;&gt;start: C语言程序</span><br><span class="line">op&#x3D;&gt;operation: 编译器</span><br><span class="line">inout&#x3D;&gt;inputoutput: 汇编语言程序</span><br><span class="line">op1&#x3D;&gt;operation: 汇编器</span><br><span class="line">inout1&#x3D;&gt;inputoutput: 目标模块：机器语言模块 + 目标库：例程序（机器语言）</span><br><span class="line">op2&#x3D;&gt;operation: 链接器</span><br><span class="line">inout2&#x3D;&gt;inputoutput: 可执行代码：机器语言程序</span><br><span class="line">op3&#x3D;&gt;operation: 加载器</span><br><span class="line">inout3&#x3D;&gt;inputoutput: 存储器</span><br><span class="line">en&#x3D;&gt;end: 结束</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;inout-&gt;op1-&gt;inout1-&gt;op2-&gt;inout2-&gt;op3-&gt;inout3-&gt;en</span><br></pre></td></tr></table></figure>
+<p>00</p>
 
         
         <br />
