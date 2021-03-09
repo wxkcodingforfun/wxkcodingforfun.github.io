@@ -197,7 +197,36 @@
 <p>其中并行的东西 感觉<strong>链接取数</strong>和<strong>条件存数</strong>应该会对多线程变成有用 但是看不懂</p>
 <p>2.12 翻译并执行程序</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">st&#x3D;&gt;start: C语言程序</span><br><span class="line">op&#x3D;&gt;operation: 编译器</span><br><span class="line">inout&#x3D;&gt;inputoutput: 汇编语言程序</span><br><span class="line">op1&#x3D;&gt;operation: 汇编器</span><br><span class="line">inout1&#x3D;&gt;inputoutput: 目标模块：机器语言模块 + 目标库：例程序（机器语言）</span><br><span class="line">op2&#x3D;&gt;operation: 链接器</span><br><span class="line">inout2&#x3D;&gt;inputoutput: 可执行代码：机器语言程序</span><br><span class="line">op3&#x3D;&gt;operation: 加载器</span><br><span class="line">inout3&#x3D;&gt;inputoutput: 存储器</span><br><span class="line">en&#x3D;&gt;end: 结束</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;inout-&gt;op1-&gt;inout1-&gt;op2-&gt;inout2-&gt;op3-&gt;inout3-&gt;en</span><br></pre></td></tr></table></figure>
-<p>00</p>
+
+
+
+
+<p>单独编译和汇编每个过程，使得某一行代码的改变只需要编译和汇编一个过程。</p>
+<p>链接器(Linker)，把所有独立汇编的机器语言程序”拼接”在一起。</p>
+<p>链接器的三步工作：</p>
+<ol>
+<li>将代码和数据模块象征性的放入内存</li>
+<li>决定数据和指令标签的地址。</li>
+<li>修补内部和外部的引用。</li>
+</ol>
+<p>采用链接器的原因是 修补代码比重新编译和汇编要快很多。</p>
+<p>加载器</p>
+<p>在UNIX系统中，加载器工作流程：</p>
+<ol>
+<li><p>读取可执行文件头来确定代码段和数据段的大小</p>
+</li>
+<li><p>为正文和数据创建一个足够大的地址空间。</p>
+</li>
+<li><p>将可执行文件中的指令和数据复制到内存中。</p>
+</li>
+<li><p>把主程序的参数（如果存在）复制到栈顶</p>
+</li>
+<li><p>初始化机器寄存器，将栈指针指向第一个空位置。</p>
+</li>
+<li><p>跳转到启动例程，它将参数复制到参数寄存器并且调用程序的main函数。当main函数返回时，启动例程通过系统调用exit中止程序。</p>
+<p>计算机的算术运算</p>
+</li>
+</ol>
 
         
         <br />
