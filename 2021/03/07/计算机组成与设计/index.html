@@ -147,7 +147,8 @@
 <p>​    但是汇编语言由于太接近计算机硬件语言，使用汇编语言来实现一些复杂操作实在太难。所以有了<strong>高级编程语言</strong>通过编译程序转换到汇编的过程。</p>
 <p>​    所以一个程序由int main()到执行的过程，是先由编译器将字符翻译成汇编语言程序，然后再由汇编变成二进制机器语言。这个过程中，由于执行程序的硬件不同，这些硬件识别的指令集也不同，所以我们需要根据不同的平台来选特定的编译器。</p>
 <p>比如：使用CISC(Complex Instruction Set Computers)复杂指令集的AMD的x86和Intel芯片，还有使用RISC(Reduced Instruction Set Computers)精简指令集的ARM，IBM Power芯片。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">st&#x3D;&gt;start: 程序代码</span><br><span class="line">op&#x3D;&gt;operation: 编译器</span><br><span class="line">io&#x3D;&gt;inputoutput: 汇编程序</span><br><span class="line">op1&#x3D;&gt;operation: 指令集汇编</span><br><span class="line">io1&#x3D;&gt;inputoutput: 二进制代码</span><br><span class="line">e&#x3D;&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;io-&gt;op1-&gt;io1-&gt;e</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div id="flowchart-0" class="flow-chart"></div>
+
 
 
 <p><strong>CISC与RISC对比</strong></p>
@@ -196,7 +197,8 @@
 <p>补码能看懂 其他的是真的看不懂 2.1~2.11</p>
 <p>其中并行的东西 感觉<strong>链接取数</strong>和<strong>条件存数</strong>应该会对多线程变成有用 但是看不懂</p>
 <p>2.12 翻译并执行程序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">st&#x3D;&gt;start: C语言程序</span><br><span class="line">op&#x3D;&gt;operation: 编译器</span><br><span class="line">inout&#x3D;&gt;inputoutput: 汇编语言程序</span><br><span class="line">op1&#x3D;&gt;operation: 汇编器</span><br><span class="line">inout1&#x3D;&gt;inputoutput: 目标模块：机器语言模块 + 目标库：例程序（机器语言）</span><br><span class="line">op2&#x3D;&gt;operation: 链接器</span><br><span class="line">inout2&#x3D;&gt;inputoutput: 可执行代码：机器语言程序</span><br><span class="line">op3&#x3D;&gt;operation: 加载器</span><br><span class="line">inout3&#x3D;&gt;inputoutput: 存储器</span><br><span class="line">en&#x3D;&gt;end: 结束</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;inout-&gt;op1-&gt;inout1-&gt;op2-&gt;inout2-&gt;op3-&gt;inout3-&gt;en</span><br></pre></td></tr></table></figure>
+<div id="flowchart-1" class="flow-chart"></div>
+
 
 
 
@@ -225,6 +227,25 @@
 </li>
 <li><p>跳转到启动例程，它将参数复制到参数寄存器并且调用程序的main函数。当main函数返回时，启动例程通过系统调用exit中止程序。</p>
 <p>计算机的算术运算</p>
+<p>明天 第三章<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 程序代码
+op=>operation: 编译器
+io=>inputoutput: 汇编程序
+op1=>operation: 指令集汇编
+io1=>inputoutput: 二进制代码
+e=>end
+
+st->op->io->op1->io1->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: C语言程序
+op=>operation: 编译器
+inout=>inputoutput: 汇编语言程序
+op1=>operation: 汇编器
+inout1=>inputoutput: 目标模块：机器语言模块 + 目标库：例程序（机器语言）
+op2=>operation: 链接器
+inout2=>inputoutput: 可执行代码：机器语言程序
+op3=>operation: 加载器
+inout3=>inputoutput: 存储器
+en=>end: 结束
+
+st->op->inout->op1->inout1->op2->inout2->op3->inout3->en</textarea><textarea id="flowchart-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script></p>
 </li>
 </ol>
 
